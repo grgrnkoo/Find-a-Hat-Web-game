@@ -333,4 +333,8 @@ span.validity {
         margin: 0;
         border-radius: 0;
     }
+
+    .how-to-play:hover {
+        opacity: .4;
+    }
 }

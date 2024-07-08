@@ -1,5 +1,5 @@
 :root {
-    --shadow-black: #00000077;
+    --shadow-black: #000000CC;
 }
 
 * {
@@ -91,7 +91,7 @@ input[type="text"]::placeholder {
 }
 
 input[type="text"]:focus {
-    outline: 2px solid black;
+    outline: 2px solid #000000CC;
 }
 
 .gamestart button {
@@ -104,12 +104,13 @@ button {
     align-items: center;
     width: 100%;
     padding: 1rem;
-    outline: 2px solid black;
+    outline: 2px solid #000000CC;
     outline: none;
     border-radius: 10px;
     font-family: 'Mitr', sans-serif;
     font-size: 1.2rem;
     background-color: #F2E14E;
+    color: #000000CC;
 }
 
 button:active {
@@ -165,7 +166,7 @@ input.error {
     max-width: 75px;
     min-height: 25px;
     aspect-ratio: 1 / 1;
-    outline: 1px solid black;
+    outline: 1px solid #000000CC;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,7 +250,7 @@ input.error {
 .how-absolute {
     position: absolute;
     background-color: white;
-    border: 2px solid black;
+    border: 2px solid #000000CC;
     padding: 1.5rem 3rem;
     border-radius: 24px;
     opacity: .9;
@@ -275,7 +276,7 @@ input.error {
 .cross {
     width: 1.6rem;
     height: 1.6rem;
-    transform: translatey(5px);
+    transform: translateY(5px);
 }
 
 .cross:hover {
@@ -285,7 +286,7 @@ input.error {
 .cross .line {
     width: 100%;
     height: 2px;
-    background-color: black;
+    background-color: #000000CC;
 }
 
 .cross .l1 {

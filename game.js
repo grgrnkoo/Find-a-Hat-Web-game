@@ -45,6 +45,7 @@ export default class Field {
     X: ${currentPoint.x + 1}
     Y: ${currentPoint.y + 1}
     `);
+            // currentPoint.exitMove = false;
             this.cleanfield()
             this.deleteStarting();
 
@@ -67,10 +68,6 @@ export default class Field {
                 this.print();
             }
 
-            if (currentPoint.exitMove) {
-                
-            }
-
         }
 
         this.deleteStarting();
@@ -81,10 +78,10 @@ export default class Field {
                 case 'btn-down':
                     nextMove = 'd';
                     break;
-                case 'btn-up': 
+                case 'btn-up':
                     nextMove = 'u';
                     break;
-                case 'btn-left': 
+                case 'btn-left':
                     nextMove = 'l';
                     break;
                 case 'btn-right':
@@ -97,10 +94,10 @@ export default class Field {
                 case 'down':
                     nextMove = 'd';
                     break;
-                case 'up': 
+                case 'up':
                     nextMove = 'u';
                     break;
-                case 'left': 
+                case 'left':
                     nextMove = 'l';
                     break;
                 case 'right':
@@ -217,18 +214,18 @@ export default class Field {
                 this.field[currentPoint.y][currentPoint.x] = pathCharacter;
                 break;
             case hat:
+                currentPoint.exitMove = true;
                 resultHeading.classList.replace('hidden', 'active');
                 validitySpan.classList.replace('active', 'hidden');
                 resultHeading.innerHTML = 'Hooorayyyy! You won a game!<br>🎉🎊 ';
                 console.log('Hooorayyyy! You won a game!');
-                currentPoint.exitMove = true;
                 break;
             case hole:
+                currentPoint.exitMove = true;
                 resultHeading.classList.replace('hidden', 'active');
                 validitySpan.classList.replace('active', 'hidden');
                 resultHeading.innerHTML = 'Oops. You ended up in a hole:(<br>🕳️🕳️🕳️';
                 console.log('Oops. You ended up in a hole:(');
-                currentPoint.exitMove = true;
                 break;
         };
     }
@@ -299,7 +296,7 @@ export default class Field {
                     (nextStep.bottom.y < this.field.length) && (this.field[nextStep.bottom.y][nextStep.bottom.x] === hat)
                 ) {
                     validitySpan.textContent = numberOfIterations === 1 ? `Can be solved in ${numberOfIterations} step` : `Can be solved in ${numberOfIterations} steps`;
-                    
+
                     return true;
                 }
 

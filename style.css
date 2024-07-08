@@ -256,6 +256,7 @@ input.error {
     opacity: .9;
     max-width: 80vw;
     font-size: .8rem;
+    z-index: 10;
 }
 
 .how-absolute .topline {

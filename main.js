@@ -30,6 +30,17 @@ form.addEventListener('submit', (e) => {
     const tempHeight = Number(height.value);
     const tempWidth = Number(width.value);
 
+    console.log(tempHeight,tempWidth);
+
+    // if(height.value) {
+    //     tempHeight = Number(height.value);
+    // }
+
+    // if(width.value) {
+    //     tempWidth = Number(width.value);
+    // }
+
+
     width.value = '';
     height.value = '';
     percentage.value = '';
@@ -39,16 +50,7 @@ form.addEventListener('submit', (e) => {
         tempPercentage = generateRandomNumber(99) + 1;
     }
 
-    if (!tempWidth || tempWidth === 0 || isNaN(tempWidth)) {
-        errorMessage.classList.replace('hidden', 'active');
-        width.classList.add('error');
-        errorMessage.textContent = 'Width is required!';
-    } else if (tempWidth > 20) {
-        errorMessage.classList.replace('hidden', 'active');
-        width.classList.add('error');
-        errorMessage.textContent = 'Max value is 20!';
-    }
-    if (!tempHeight || tempHeight === 0 || isNaN(tempHeight)) {
+    if (tempHeight === 0 || isNaN(tempHeight)) {
         errorMessage.classList.replace('hidden', 'active');
         height.classList.add('error');
         errorMessage.textContent = 'Height is required!';
@@ -58,7 +60,23 @@ form.addEventListener('submit', (e) => {
         errorMessage.textContent = 'Max value is 20!';
     }
 
-    if (tempHeight && tempHeight && !isNaN(tempHeight) && !isNaN(tempWidth)) {
+    if (tempWidth === 0 || isNaN(tempWidth)) {
+        console.log(isNaN(tempWidth))
+        errorMessage.classList.replace('hidden', 'active');
+        width.classList.add('error');
+        errorMessage.textContent = 'Width is required!';
+    } else if (tempWidth > 20) {
+        errorMessage.classList.replace('hidden', 'active');
+        width.classList.add('error');
+        errorMessage.textContent = 'Max value is 20!';
+    }
+
+    if (tempHeight !== 0 
+        && tempWidth !== 0 
+        && !isNaN(tempHeight) 
+        && !isNaN(tempWidth) 
+        && tempHeight <= 20 
+        && tempWidth <= 20) {
 
         firstScreen.classList.replace('active', 'hidden');
         secondScreen.classList.replace('hidden', 'active');

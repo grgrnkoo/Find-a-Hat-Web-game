@@ -105,6 +105,7 @@ button {
     width: 100%;
     padding: 1rem;
     outline: 2px solid #000000CC;
+    border: none;
     border-radius: 10px;
     font-family: 'Mitr', sans-serif;
     font-size: 1.2rem;

@@ -1,0 +1,315 @@
+:root {
+    --pinky: #F49A6E;
+    --bright-orange: #F2A14E;
+    --saturated-yellow: #e5c574;
+    --saturated-orange: #F2B94E;
+    --mustard: #F2E14E;
+    --beige: #F2D59E;
+    --beige-halftone: #F2D59E88;
+    --red: #FD0004;
+    --halftonered: #FD000499;
+    --shadow-black: #00000077;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    min-height: 100%;
+    width: 100%;
+    min-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--beige) url('./src/grass-bg.svg') scroll;
+    background-size: 60px;
+    font-family: 'Mitr', sans-serif;
+}
+
+main {
+    background-color: var(--saturated-yellow);
+    max-width: fit-content;
+    min-width: 400px;
+    max-height: 90%;
+    padding: 1.5rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0px 0px 12px 1px var(--shadow-black);
+    transition: scale .5s;
+}
+
+h1 {
+    font-weight: 500;
+    opacity: .8;
+}
+
+h1 img {
+    position: absolute;
+    height: 30px;
+    transform: rotateY(180deg) translateX(25px) rotateZ(-20deg);
+}
+
+h2 {
+    font-weight: 400;
+    margin-top: .5rem;
+    font-size: 20px;
+    opacity: .8;
+}
+
+.gamestart,
+form,
+main,
+.gameplay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gamestart span {
+    margin-top: .5rem;
+}
+
+form {
+    margin: .5rem 0 1rem 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: .7rem 1rem;
+    font-size: 1.2rem;
+    margin: .2rem;
+    font-family: 'Mitr', sans-serif;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+input[type="text"]::placeholder {
+    opacity: .6;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid black;
+}
+
+.gamestart button {
+    margin-top: .8rem;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    outline: 2px solid black;
+    outline: none;
+    border-radius: 10px;
+    font-family: 'Mitr', sans-serif;
+    font-size: 1.2rem;
+    background-color: var(--mustard);
+}
+
+button:active {
+    background-color: var(--bright-orange);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+span a,
+span a:visited,
+span a:active {
+    color: var(--halftonered);
+    opacity: .8;
+}
+
+.hidden {
+    position: absolute;
+    scale: 0;
+}
+
+.active {
+    position: relative;
+    scale: 1;
+}
+
+.error {
+    color: var(--red);
+}
+
+input.error {
+    background-color: var(--halftonered);
+    color: var(--red);
+}
+
+.gameplay {
+    margin: 1rem 0 2rem 0;
+}
+
+#game {
+    display: grid;
+    width: fit-content;
+    /* height: 100px; */
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    background-image: url('./src/4934913_2548806-02.svg');
+    background-size: cover;
+}
+
+.grid-element {
+    min-width: 25px;
+    min-height: 25px;
+    aspect-ratio: 1 / 1;
+    outline: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2rem;
+}
+
+.grid-element img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.buttons {
+    margin: 2rem 2rem 0 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrows button {
+    min-width: 80px;
+    max-width: 200px;
+}
+
+.arrows {
+    max-width: 50%;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3,1fr);
+    grid-gap: .4rem;
+}
+
+#btn-left img{
+    transform: rotateZ(-90deg);
+    position: relative;
+}
+
+#btn-right img{
+    transform: rotateZ(90deg);
+    position: relative;
+}
+
+#btn-down img{
+    transform: rotateZ(180deg);
+    position: relative;
+}
+
+#hard-mode {
+    background-color: var(--bright-orange);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    min-width: 35%;
+    justify-content: space-between;
+}
+
+.controls button {
+    margin: .4rem;
+    padding: .6rem;
+}
+
+.how-to-play {
+    opacity: .4;
+    text-decoration: underline dotted;
+    margin-bottom: .4rem;
+    margin-top: .2rem;
+}
+
+.how-to-play:hover {
+    opacity: .8;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.how-absolute {
+    position: absolute;
+    background-color: white;
+    border: 2px solid black;
+    padding: 1.5rem 3rem;
+    border-radius: 24px;
+    opacity: .9;
+    max-width: 80vw;
+    max-height: 90vh;
+    font-size: .8rem;
+}
+
+.how-absolute .topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.how-absolute.active {
+    position: absolute;
+}
+
+.how-absolute h3 {
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+
+.cross {
+    width: 1.6rem;
+    height: 1.6rem;
+    transform: translatey(5px);
+}
+
+.cross:hover {
+    cursor: pointer;
+}
+
+.cross .line {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.cross .l1 {
+    transform: rotateZ(45deg) translateY(-1px) translateX(1px);
+}
+
+.cross .l2 {
+    transform: rotateZ(-45deg) translateY(-1px) translateX(2px);
+}
+
+p#result {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+}
+
+span.validity {
+    margin-bottom: .8rem;
+    opacity: .4;
+}

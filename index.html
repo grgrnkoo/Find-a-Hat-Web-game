@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Hat | Web App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1>Find Your Hat <img src="./src/Fedora_hat.svg" alt=""></h1>
+
+        <div class="gamestart active">
+            <h2>Enter field parameters:</h2>
+            <span class="error hidden">Width and Height are required</span>
+            <form action="">
+                <input type="text" id="height" name="height" placeholder="Height">
+                <input type="text" id="width" name="height" placeholder="Width">
+                <input type="text" id="percentage" name="percentage" placeholder="Holes percentage, %">
+                <button type="submit" id="submitbutton">Start Game</button>
+            </form>
+        </div>
+        <div class="gameplay hidden">
+            <span class="validity active"></span>
+            <p id="result" class="hidden"></p>
+            <div id="game">
+
+            </div>
+            <div class="buttons" id="button-block">
+                <div class="arrows">
+                    <div class="div"></div>
+                    <button id="btn-up"><img src="./src/arrow.svg" alt="" class="up"></button>
+                    <div class="div"></div>
+                    <button id="btn-left"><img src="./src/arrow.svg" alt="" class="left"></button>
+                    <button id="btn-down"><img src="./src/arrow.svg" alt="" class="down"></button>
+                    <button id="btn-right"><img src="./src/arrow.svg" alt="" class="right"></button>
+                </div>
+                <div class="controls">
+                    <button id="hard-mode">Hard Mode</button>
+                    <button id="restart">Restart</button>
+                    <button id="main">Main Menu</button>
+                </div>
+            </div>
+        </div>
+        <div class="how-absolute hidden">
+            <ol>
+                <div class="topline">
+                    <h3>How to play?</h3>
+                    <div class="cross">
+                        <div class="line l1"></div>
+                        <div class="line l2"></div>
+                    </div>
+                </div>
+                <li>Width and Height are required parameters</li>
+                <li>Max width and height value is 20, just because it's the most comfortable size for your eyes</li>
+                <li>Percentage is optional. If You don't enter it, game starts with a random value from 1% to 100%</li>
+                <li>There is a checker above the game field. It shows if game can be solved or not.</li>
+                <li>If game can be solved, you will see a number of moves to solve a puzzle(fastest option)</li>
+                <li>If game can't be solved, please press 'Restart' button</li>
+                <li>Restart button will set a new field with the same parameters</li>
+                <li>If you want to set new parameters, click 'Main Menu' button</li>
+                <li>Main menu will move you to a first screen(by refreshing page, be carefull with your web connection
+                </li>
+                <li>Hard mode covers 20% of field with additional holes. Be careful, it may shut down all routes to a
+                    hat</li>
+                <li>You can move your character using either arrows on the screen or arrow keys on your keyboard</li>
+                <li>If you want to get in touch with creator, click the link below</li>
+                <li>Thanks for your attention! Good luck and Have fun!</li>
+            </ol>
+        </div>
+        <span class="how-to-play">How to play?</span>
+        <span>Made by <a href="https://t.me/grgrnkoo">Oleg</a> with ❤️</span>
+    </main>
+    <script src="./main.js" type="module"></script>
+</body>
+
+</html>

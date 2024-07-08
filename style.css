@@ -339,6 +339,10 @@ span.validity {
         min-height: 100vh;
     }
 
+    h2 {
+        margin-top: 2rem;
+    }
+
     .how-to-play:hover {
         opacity: .4;
     }

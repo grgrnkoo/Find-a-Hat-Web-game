@@ -38,13 +38,14 @@ export default class Field {
         resultHeading.classList.replace('active', 'hidden');
         this.print();
         this.checkValidity();
+        validitySpan.classList.replace('hidden', 'active');
 
         const refreshField = (move) => {
             console.log(`Starting point:
     X: ${currentPoint.x + 1}
     Y: ${currentPoint.y + 1}
     `);
-
+            this.cleanfield()
             this.deleteStarting();
 
             this.move(move, currentPoint);
@@ -67,25 +68,12 @@ export default class Field {
             }
 
             if (currentPoint.exitMove) {
-                validitySpan.classList.replace('active', 'hidden');
+                
             }
 
         }
 
-        // while (!currentPoint.exitMove) {
-        // console.clear();
-        // this.print();
-        // console.log(this.checkValidity() ? 'You can solve this game!' : 'This game can\'t be solved. Try again');
         this.deleteStarting();
-        //         console.log(`Choose your next move:
-        //                               d - down,
-        //                               u - up,
-        //                               r - right,
-        //                               l - left,
-        //                               q - close the game,
-        //                               a - add more holes(make it harder!)
-        // `);
-        // const nextMove = prompt('>  ');
 
         buttonBlock.addEventListener('click', e => {
             let nextMove = '';
@@ -142,20 +130,6 @@ export default class Field {
             }
             refreshField(nextMove);
         });
-
-        // this.move(nextMove, currentPoint);
-        // console.log(currentPoint);
-
-        // if ((currentPoint.x >= this.field[0].length) || (currentPoint.x < 0) || (currentPoint.y < 0) || (currentPoint.y >= this.field.length)) {
-        //     console.log('You lost. Try again!');
-        //     currentPoint.exitMove = true;
-        // };
-
-        // if (currentPoint.exitMove !== true) {
-        //     this.changeField(currentPoint);
-        // }
-        // this.hardMode();
-        // };
     }
 
     // Logs the whole field to the console
@@ -244,12 +218,14 @@ export default class Field {
                 break;
             case hat:
                 resultHeading.classList.replace('hidden', 'active');
+                validitySpan.classList.replace('active', 'hidden');
                 resultHeading.innerHTML = 'Hooorayyyy! You won a game!<br>🎉🎊 ';
                 console.log('Hooorayyyy! You won a game!');
                 currentPoint.exitMove = true;
                 break;
             case hole:
                 resultHeading.classList.replace('hidden', 'active');
+                validitySpan.classList.replace('active', 'hidden');
                 resultHeading.innerHTML = 'Oops. You ended up in a hole:(<br>🕳️🕳️🕳️';
                 console.log('Oops. You ended up in a hole:(');
                 currentPoint.exitMove = true;
@@ -322,9 +298,8 @@ export default class Field {
                     (nextStep.top.y >= 0) && (this.field[nextStep.top.y][nextStep.top.x] === hat) ||
                     (nextStep.bottom.y < this.field.length) && (this.field[nextStep.bottom.y][nextStep.bottom.x] === hat)
                 ) {
-                    validitySpan.classList.replace('hidden', 'active');
                     validitySpan.textContent = numberOfIterations === 1 ? `Can be solved in ${numberOfIterations} step` : `Can be solved in ${numberOfIterations} steps`;
-                    this.cleanfield()
+                    
                     return true;
                 }
 
@@ -369,7 +344,6 @@ export default class Field {
             tempLength = 0;
         }
         this.cleanfield();
-        validitySpan.classList.replace('hidden', 'active');
         validitySpan.textContent = `This game can't be solved. Restart!`;
         return false;
     }

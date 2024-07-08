@@ -1,13 +1,4 @@
 :root {
-    --pinky: #F49A6E;
-    --bright-orange: #F2A14E;
-    --saturated-yellow: #e5c574;
-    --saturated-orange: #F2B94E;
-    --mustard: #F2E14E;
-    --beige: #F2D59E;
-    --beige-halftone: #F2D59E88;
-    --red: #FD0004;
-    --halftonered: #FD000499;
     --shadow-black: #00000077;
 }
 
@@ -30,20 +21,20 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: var(--beige) url('./src/grass-bg.svg') scroll;
+    background: #F2D59E url('./src/grass-bg.svg') scroll;
     background-size: 60px;
     font-family: 'Mitr', sans-serif;
 }
 
 main {
-    background-color: var(--saturated-yellow);
+    background-color: #e5c574;
     max-width: fit-content;
     min-width: 400px;
     max-height: 90%;
     padding: 1.5rem 2rem;
     margin: 2rem;
     border-radius: 24px;
-    box-shadow: 0px 0px 12px 1px var(--shadow-black);
+    box-shadow: 0px 0px 12px 1px #00000077;
     transition: scale .5s;
 }
 
@@ -118,11 +109,11 @@ button {
     border-radius: 10px;
     font-family: 'Mitr', sans-serif;
     font-size: 1.2rem;
-    background-color: var(--mustard);
+    background-color: #F2E14E;
 }
 
 button:active {
-    background-color: var(--bright-orange);
+    background-color: #F2A14E;
 }
 
 button:hover {
@@ -132,7 +123,7 @@ button:hover {
 span a,
 span a:visited,
 span a:active {
-    color: var(--halftonered);
+    color: #FD000499;
     opacity: .8;
 }
 
@@ -147,12 +138,12 @@ span a:active {
 }
 
 .error {
-    color: var(--red);
+    color: #FD0004;
 }
 
 input.error {
-    background-color: var(--halftonered);
-    color: var(--red);
+    background-color: #FD000499;
+    color: #FD0004;
 }
 
 .gameplay {
@@ -200,6 +191,7 @@ input.error {
 
 .arrows {
     max-width: 50%;
+    margin-right: 2rem;
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(3,1fr);
     grid-gap: .4rem;
@@ -221,7 +213,7 @@ input.error {
 }
 
 #hard-mode {
-    background-color: var(--bright-orange);
+    background-color: #F2A14E;
 }
 
 .controls {
@@ -233,8 +225,12 @@ input.error {
 }
 
 .controls button {
-    margin: .4rem;
+    margin-bottom: .4rem;
     padding: .6rem;
+}
+
+.controls button:last-child {
+    margin-bottom: 0;
 }
 
 .how-to-play {
@@ -258,7 +254,6 @@ input.error {
     border-radius: 24px;
     opacity: .9;
     max-width: 80vw;
-    max-height: 90vh;
     font-size: .8rem;
 }
 

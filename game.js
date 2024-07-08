@@ -37,14 +37,13 @@ export default class Field {
         }
         resultHeading.classList.replace('active', 'hidden');
         this.print();
-        console.log(this.checkValidity() ? 'You can solve this game!' : 'This game can\'t be solved. Try again');
+        this.checkValidity();
 
         const refreshField = (move) => {
             console.log(`Starting point:
     X: ${currentPoint.x + 1}
     Y: ${currentPoint.y + 1}
     `);
-            console.log(this.checkValidity() ? 'You can solve this game!' : 'This game can\'t be solved. Try again');
 
             this.deleteStarting();
 

@@ -16,7 +16,7 @@ html {
 body {
     min-height: 100%;
     width: 100%;
-    min-width: 450px;
+    min-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@ body {
 main {
     background-color: #e5c574;
     max-width: fit-content;
-    min-width: 400px;
+    min-width: 300px;
     max-height: 90%;
     padding: 1.5rem 2rem;
     margin: 2rem;
@@ -190,7 +190,7 @@ input.error {
 }
 
 .arrows {
-    max-width: 50%;
+    /* max-width: 50%; */
     margin-right: 2rem;
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(3,1fr);
@@ -309,4 +309,28 @@ p#result {
 span.validity {
     margin-bottom: .8rem;
     opacity: .4;
+}
+
+@media only screen and (max-width: 550px) {
+    .buttons {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arrows {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .controls {
+        min-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    main{
+        margin: 0;
+        border-radius: 0;
+    }
 }

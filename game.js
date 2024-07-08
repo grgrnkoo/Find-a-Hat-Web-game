@@ -39,6 +39,7 @@ export default class Field {
         this.print();
         this.checkValidity();
         validitySpan.classList.replace('hidden', 'active');
+        this.cleanfield();
 
         const refreshField = (move) => {
             console.log(`Starting point:

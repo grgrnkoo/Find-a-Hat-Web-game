@@ -49,7 +49,7 @@ export default class Field {
             if(resultHeading.classList.contains('active')) {
                 resultHeading.classList.replace('active', 'hidden');
             }
-            resultHeading.innerHTML = '';
+            
 
             this.cleanfield()
             this.deleteStarting();
@@ -77,6 +77,7 @@ export default class Field {
             if (currentPoint.exitMove) {
                 resultHeading.classList.replace('hidden', 'active');
                 gameGrid.innerHTML = '';
+                return;
             }
 
         }

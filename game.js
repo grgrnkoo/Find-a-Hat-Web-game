@@ -39,14 +39,18 @@ export default class Field {
         this.print();
         this.checkValidity();
         validitySpan.classList.replace('hidden', 'active');
-        this.cleanfield();
 
         const refreshField = (move) => {
+
             console.log(`Starting point:
     X: ${currentPoint.x + 1}
     Y: ${currentPoint.y + 1}
     `);
-            // currentPoint.exitMove = false;
+            if(resultHeading.classList.contains('active')) {
+                resultHeading.classList.replace('active', 'hidden');
+            }
+            resultHeading.innerHTML = '';
+
             this.cleanfield()
             this.deleteStarting();
 
@@ -60,13 +64,19 @@ export default class Field {
             };
 
             if (currentPoint.exitMove !== true) {
-                this.changeField(currentPoint);
+                // this.changeField(currentPoint);
             };
 
             gameGrid.innerHTML = '';
 
             if (!currentPoint.exitMove) {
+                this.changeField(currentPoint);
                 this.print();
+            }
+
+            if (currentPoint.exitMove) {
+                resultHeading.classList.replace('hidden', 'active');
+                gameGrid.innerHTML = '';
             }
 
         }
@@ -216,16 +226,14 @@ export default class Field {
                 break;
             case hat:
                 currentPoint.exitMove = true;
-                resultHeading.classList.replace('hidden', 'active');
-                validitySpan.classList.replace('active', 'hidden');
                 resultHeading.innerHTML = 'Hooorayyyy! You won a game!<br>🎉🎊 ';
+                validitySpan.classList.replace('active', 'hidden');
                 console.log('Hooorayyyy! You won a game!');
                 break;
             case hole:
                 currentPoint.exitMove = true;
-                resultHeading.classList.replace('hidden', 'active');
-                validitySpan.classList.replace('active', 'hidden');
                 resultHeading.innerHTML = 'Oops. You ended up in a hole:(<br>🕳️🕳️🕳️';
+                validitySpan.classList.replace('active', 'hidden');
                 console.log('Oops. You ended up in a hole:(');
                 break;
         };
@@ -245,6 +253,8 @@ export default class Field {
             }
 
         }
+
+        this.checkValidity();
     }
 
     checkValidity() {
@@ -262,8 +272,6 @@ export default class Field {
         }];
 
         let numberOfIterations = 0;
-
-        // cd Desktop/coding/html-css-js/starting 
 
         while (allPaths.length > 0) {
             let tempLength = allPaths.length;

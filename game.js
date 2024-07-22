@@ -383,16 +383,17 @@ export default class Field {
         };
 
         settingHoles: while (holesQuantity > 0) {
-            for (let i = 0; i < newField.length; i++) {
-                for (let j = 0; j < newField[i].length; j++) {
-                    if ((generateRandomNumber(1) === 1) && (holesQuantity > 0)) {
-                        newField[i][j] = hole;
-                        holesQuantity--;
-                    }
-                    if (holesQuantity === 0) {
-                        break settingHoles;
-                    }
-                }
+            const newX = generateRandomNumber(newField[0].length - 1);
+            const newY = generateRandomNumber(newField.length - 1);
+
+            console.log(newX, newY);
+
+            if((newField[newY][newX] !== hole) && (holesQuantity > 0)) {
+                newField[newY][newX] = hole;
+                holesQuantity--;
+            }
+            if (holesQuantity === 0) {
+                break settingHoles;
             }
         };
 

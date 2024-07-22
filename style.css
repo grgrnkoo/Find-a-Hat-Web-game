@@ -255,8 +255,10 @@ input.error {
     border-radius: 24px;
     opacity: .9;
     max-width: 80vw;
+    max-height: 80vh;
     font-size: .8rem;
     z-index: 10;
+    overflow-y: scroll;
 }
 
 .how-absolute .topline {
